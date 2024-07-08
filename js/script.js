@@ -62,8 +62,11 @@ playBtn.addEventListener('click', function(){
     let score = 0;
     // INIZIALIZZO GLI ELEMENTI DELLA GRIGLIA 
     let totalElements = 0 
+
     // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
     if (difficulty === 'easy'){
+        // DEFINISCO IL VALORE DI totalElements
+        totalElements = 100;
         // ESEGUO UN CICLO DI 100 ITERAZIONI PER CREARE UNA GRIGLIA
         for(let i = 0; i < 100; i++){
             // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
@@ -81,6 +84,8 @@ playBtn.addEventListener('click', function(){
             gridDestination.append(currentSquare);
         }
     } else if (difficulty === 'medium'){
+        // DEFINISCO IL VALORE DI totalElements
+        totalElements = 100;
         // ESEGUO UN CICLO DI 81 ITERAZIONI PER CREARE UNA GRIGLIA
         for(let i = 0; i < 81; i++){
             // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
@@ -98,6 +103,8 @@ playBtn.addEventListener('click', function(){
             gridDestination.append(currentSquare);
         }
     } else if (difficulty === 'hard') {
+        // DEFINISCO IL VALORE DI totalElements
+        totalElements = 49;
         // ESEGUO UN CICLO DI 49 ITERAZIONI PER CREARE UNA GRIGLIA
         for(let i = 0; i < 49; i++){
             // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
