@@ -36,6 +36,10 @@ const totalBombs = 16;
         while(bombs.length < totalBombs){
             // GENERO IL NUMERO EFFETTIVO CHE VERRA INSERITO NELL'ARRAY
             let bomb = Math.floor(Math.random() * totalElements) + 1;
+            // VERIFICO CHE IL NUMERO NON SIA GIÀ PRESENTE ALL'INTERNO DELL'ARRAY
+            if (!bombs.includes(bomb)){
+                
+            }
         }
     }
 
