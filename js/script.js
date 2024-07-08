@@ -38,7 +38,8 @@ const totalBombs = 16;
             let bomb = Math.floor(Math.random() * totalElements) + 1;
             // VERIFICO CHE IL NUMERO NON SIA GIÀ PRESENTE ALL'INTERNO DELL'ARRAY
             if (!bombs.includes(bomb)){
-                
+                // PUSH THE NUMBER INSIDE THE ARRAY
+                bombs.push(bomb);
             }
         }
     }
