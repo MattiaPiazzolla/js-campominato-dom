@@ -58,6 +58,9 @@ playBtn.addEventListener('click', function(){
     console.clear();
     // RIVALUTO IL VALORE DI DIFFICULTI AL CLICK DEL PULSANTE DI AVVIO/RESET
     difficulty = document.getElementById('difficultyLevel').value;
+    // INIZZIALIZZO IL PUNTEGGIO
+    let score = 0;
+    
     // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
     if (difficulty === 'easy'){
         // ESEGUO UN CICLO DI 100 ITERAZIONI PER CREARE UNA GRIGLIA
