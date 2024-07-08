@@ -1,7 +1,7 @@
 // RECUPERO IL PULSANTE PER INIZIARE/RESETTARE IL GIOCO
 const playBtn = document.getElementById('playBtn');
 // RECUPERO DIFFICOLTÀ
-let difficulty = document.getElementById('difficultyLevel').value;
+let difficulty = 'easy';
 // DEFINISCO LA FUNZIONE PER LA CREAZIONE DELL'ELEMENTO DELLA GRIGLIA
 function createGridElement() {
     // DEFINISCO CHE TIPO DI ELEMENTO CREARE
@@ -17,12 +17,10 @@ function createGridElement() {
         currentElement.classList.add('squareMedium');
         // ESCO DALLA FUNZIONE RESTITUENDO LA VARIABILE currentElement
         return currentElement;
-    } else if (difficulty === 'hard') {
+    } else {
         // AGGIUNGO UNA CLASSE ALL'ELEMENTO CREATO, PER DEFINIRE IL SUO STILE
         currentElement.classList.add('squareHard');
         // ESCO DALLA FUNZIONE RESTITUENDO LA VARIABILE currentElement
-        return currentElement;
-    } else {
         return currentElement
     }
 }
@@ -48,6 +46,7 @@ const totalBombs = 16;
 
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
 const gridDestination = document.getElementById('gridContainer');
+
 // DEFINISCO L'EVENTO CLICK DEL PULSANTE playBtn
 playBtn.addEventListener('click', function(){
     // SVUOTO LA GRIGLIA PRIMA DI GENERARNE UNA NUOVA
@@ -61,74 +60,34 @@ playBtn.addEventListener('click', function(){
     // INIZZIALIZZO IL PUNTEGGIO
     let score = 0;
     // INIZIALIZZO GLI ELEMENTI DELLA GRIGLIA 
-    let totalElements = 0 
-
+    let totalElements; 
     // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
     if (difficulty === 'easy'){
-        totalElements = 100; // Assegno il valore qui per easy
+        totalElements = 100; 
     } else if (difficulty === 'medium'){
-        totalElements = 81; // Assegno il valore qui per medium
+        totalElements = 81; 
     } else if (difficulty === 'hard') {
-        totalElements = 49; // Assegno il valore qui per hard
+        totalElements = 49; 
     }
-
-    // CHIAMO LA FUNZIONE PER GENERARE LE BOMBE
-    bombs = createBombs(totalBombs, totalElements);
-    // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
-    if (difficulty === 'easy'){
-        // ESEGUO UN CICLO DI 100 ITERAZIONI PER CREARE UNA GRIGLIA
-        for(let i = 0; i < 100; i++){
-            // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
-            let currentSquare = createGridElement();
-            // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
-            currentSquare.addEventListener('click', function(){
-                if (bombs.includes(cellNumber)) {
-                    this.classList.add('bomb');
-                } else {
-                    // AGGIUNGO UNA CLASSE CLICKED
-                    this.classList.add('clicked');
-                }
-                // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
-                console.log(`Hai cliccato sulla cella numero ${i + 1}`);
-            });
-            // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
-            currentSquare.innerText = i + 1;
-            // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
-            gridDestination.append(currentSquare);
-        }
-    } else if (difficulty === 'medium'){
-        // ESEGUO UN CICLO DI 81 ITERAZIONI PER CREARE UNA GRIGLIA
-        for(let i = 0; i < 81; i++){
-            // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
-            let currentSquare = createGridElement();
-            // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
-            currentSquare.addEventListener('click', function(){
-                // AGGIUNGO UNA CLASSE CLICKED
-                this.classList.add('clicked');
-                // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
-                console.log(`Hai cliccato sulla cella numero ${i + 1}`);
-            });
-            // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
-            currentSquare.innerText = i + 1;
-            // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
-            gridDestination.append(currentSquare);
-        }
-    } else if (difficulty === 'hard') {
-        // ESEGUO UN CICLO DI 49 ITERAZIONI PER CREARE UNA GRIGLIA
-        for(let i = 0; i < 49; i++){
-            // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
-            let currentSquare = createGridElement();
-            // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
-            currentSquare.addEventListener('click', function(){
-                // AGGIUNGO UNA CLASSE CLICKED
-                this.classList.add('clicked');
-                // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
-                console.log(`Hai cliccato sulla cella numero ${i + 1}`);
-            });
-            // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
-            currentSquare.innerText = i + 1;
-            // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
-            gridDestination.append(currentSquare);
-        }
+    // ESEGUO UN CICLO IN BASE A totalElements PER CREARE LA GRIGLIA
+    for(let i = 0; i < totalElements; i++){
+        // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
+        let currentSquare = createGridElement();
+        // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
+        currentSquare.addEventListener('click', function(){
+            // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
+            console.log(`Hai cliccato sulla cella numero ${i + 1}`);
+            // AGGIUNGO UNA CLASSE CON LA FUNZIONE TOGGLE PER ACCENDERE E SPEGNERE AD OGNI CLICK
+            this.classList.add('clicked');
+            // CONTROLLA SE LA CELLA CLICCATA CONTIENE UNA BOMBA
+            if (bombs.includes(i + 1)) {
+                // AGGIUNGO LA CLASSE bomb ALLE CELLE CON IL NUMERO PRESENTE NELL'ARRAY bombs
+                this.classList.add('bomb');
+            }
+        });
+        // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
+        currentSquare.innerText = i + 1;
+        // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
+        gridDestination.append(currentSquare);
     }
 });
