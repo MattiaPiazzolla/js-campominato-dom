@@ -62,7 +62,8 @@ playBtn.addEventListener('click', function(){
     let score = 0;
     // INIZIALIZZO GLI ELEMENTI DELLA GRIGLIA 
     let totalElements = 0 
-
+    // CHIAMO LA FUNZIONE PER GENERARE LE BOMBE
+    bombs = createBombs(totalBombs, totalElements);
     // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
     if (difficulty === 'easy'){
         // DEFINISCO IL VALORE DI totalElements

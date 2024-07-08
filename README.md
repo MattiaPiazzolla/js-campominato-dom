@@ -32,6 +32,7 @@ SCOMPOSIZIONE IN SOTTOPROBLEMI
         >>>esco dalla funzione 
 >all'interno dell'event listener del pulsante play vado ad inizzializzare la variabile per il punteggio 
 >definisco il numero totale delle caselle
+>Chiamo la funzione per generare le bombe
 >all'inten dell'eventi listener della cella, vado ad aggiungere una verifia di presenza del numero della cella cliccata all'interno dell'array 
     >>se il numero è presente, vado ad aggiungere la classe bomb alla cella ed un messaggio di allert di Game over!
     >>In caso contrario, aggiungo la classe clicked e aumento lo score 
