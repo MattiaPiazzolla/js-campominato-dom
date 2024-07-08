@@ -32,6 +32,10 @@ const totalBombs = 16;
     function createBombs(totalBombs , elementsNumber ){
         // DEFINISCO UN ARRAY VUOTO
         let bombs = [];
+        // DEFINISCO UN CICLO WHILE PER FAR GENERARE 16 NUMERI DIVERSI 
+        while(bombs.length < totalBombs){
+            
+        }
     }
 
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
