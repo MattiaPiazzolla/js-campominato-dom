@@ -108,7 +108,8 @@ main{
 }
 
 .bomb{
-    background-color: red !important;
+    background-color: red;
+    color: white;
 }
 
 
@@ -134,4 +135,8 @@ main{
 
 .btn-custom:hover{
     background-color: #00ff73;
+}
+
+.game-over{
+    pointer-events: none;
 }

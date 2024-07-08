@@ -1,7 +1,7 @@
 // RECUPERO IL PULSANTE PER INIZIARE/RESETTARE IL GIOCO
 const playBtn = document.getElementById('playBtn');
 // RECUPERO DIFFICOLTÀ
-let difficulty = 'easy';
+let difficulty = document.getElementById('difficultyLevel').value;
 // DEFINISCO LA FUNZIONE PER LA CREAZIONE DELL'ELEMENTO DELLA GRIGLIA
 function createGridElement() {
     // DEFINISCO CHE TIPO DI ELEMENTO CREARE
@@ -57,6 +57,8 @@ playBtn.addEventListener('click', function(){
     console.clear();
     // RESETTO IL PUNTEGGIO
     let score = 0; //------------------------------------------------------------------------------------------NON CAPISCO PERCHE FUNZIONA SOLO PARZIALMENTE
+    // RESETTO LA CLASSE PER DISABILITARE IL CLICK
+    gridDestination.classList.remove('game-over');
     // RIVALUTO IL VALORE DI DIFFICULTI AL CLICK DEL PULSANTE DI AVVIO/RESET
     difficulty = document.getElementById('difficultyLevel').value;
     // INIZIALIZZO GLI ELEMENTI DELLA GRIGLIA 
@@ -75,6 +77,8 @@ playBtn.addEventListener('click', function(){
     for(let i = 0; i < totalElements; i++){
         // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
         let currentSquare = createGridElement();
+        // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
+        currentSquare.innerText = i + 1;
         // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
         currentSquare.addEventListener('click', function(){
             // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
@@ -83,18 +87,20 @@ playBtn.addEventListener('click', function(){
             if (bombs.includes(i + 1)) {
                 // AGGIUNGO LA CLASSE bomb ALLE CELLE CON IL NUMERO PRESENTE NELL'ARRAY bombs
                 this.classList.add('bomb');
+                // AGGIUNGO LA CLASSE PER DISABILITARE IL CLICK
+                gridDestination.classList.add('game-over');
+                // AGGIUNGO UN ALLERT DI SCONFITTA
+                alert('BOOM!!! Hai calpestato una BOMBA, hai perso...');
+                document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">BOOM!!! Hai calpestato una BOMBA, hai perso...</h2>`
             } else {
                 // AGGIUNGO UNA CLASSE clicked
                 this.classList.add('clicked');
                 // AUMENTIAMO LO SORE
                 score ++;
+                // DEFINISCO L'OUTPUT DEL PUNTEGGIO
+                document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">Punteggio : ${score}</h2>`
             }
-            // DEFINISCO L'OUTPUT DEL PUNTEGGIO
-            document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">Punteggio : ${score}</h2>`
-            
         });
-        // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
-        currentSquare.innerText = i + 1;
         // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
         gridDestination.append(currentSquare);
     }
