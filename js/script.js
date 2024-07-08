@@ -69,6 +69,8 @@ playBtn.addEventListener('click', function(){
     } else if (difficulty === 'hard') {
         totalElements = 49; 
     }
+    // CHIAMO LA FUNZIONE PER GENERARE LE BOMBE
+    const bombs = createBombs(totalBombs, totalElements);
     // ESEGUO UN CICLO IN BASE A totalElements PER CREARE LA GRIGLIA
     for(let i = 0; i < totalElements; i++){
         // CREO IL SINGOLO ELEMENTO CHIAMANDO LA FUNZIONE
