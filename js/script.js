@@ -55,10 +55,10 @@ playBtn.addEventListener('click', function(){
     playBtn.innerText = 'Reset';
     // RESETTO LA CONSOLE
     console.clear();
+    // RESETTO IL PUNTEGGIO
+    let score = 0; //------------------------------------------------------------------------------------------NON CAPISCO PERCHE FUNZIONA SOLO PARZIALMENTE
     // RIVALUTO IL VALORE DI DIFFICULTI AL CLICK DEL PULSANTE DI AVVIO/RESET
     difficulty = document.getElementById('difficultyLevel').value;
-    // INIZZIALIZZO IL PUNTEGGIO
-    let score = 0;
     // INIZIALIZZO GLI ELEMENTI DELLA GRIGLIA 
     let totalElements; 
     // DEFINISCO LE CONDIZIONI DI CREAZIONE DELLA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTÀ
@@ -79,17 +79,24 @@ playBtn.addEventListener('click', function(){
         currentSquare.addEventListener('click', function(){
             // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
             console.log(`Hai cliccato sulla cella numero ${i + 1}`);
-            // AGGIUNGO UNA CLASSE CON LA FUNZIONE TOGGLE PER ACCENDERE E SPEGNERE AD OGNI CLICK
-            this.classList.add('clicked');
             // CONTROLLA SE LA CELLA CLICCATA CONTIENE UNA BOMBA
             if (bombs.includes(i + 1)) {
                 // AGGIUNGO LA CLASSE bomb ALLE CELLE CON IL NUMERO PRESENTE NELL'ARRAY bombs
                 this.classList.add('bomb');
+            } else {
+                // AGGIUNGO UNA CLASSE clicked
+                this.classList.add('clicked');
+                // AUMENTIAMO LO SORE
+                score ++;
             }
+            // DEFINISCO L'OUTPUT DEL PUNTEGGIO
+            document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">Punteggio : ${score}</h2>`
+            
         });
         // AGGIUNGO IL NUMERO ALL'INTERNO DEGLI ELEMENTI
         currentSquare.innerText = i + 1;
         // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
         gridDestination.append(currentSquare);
     }
+
 });
