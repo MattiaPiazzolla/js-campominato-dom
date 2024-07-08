@@ -81,6 +81,10 @@ playBtn.addEventListener('click', function(){
         currentSquare.innerText = i + 1;
         // AGGIUNGO UN eventListener PER OGNI ELEMENTO DELLA GRIGLIA
         currentSquare.addEventListener('click', function(){
+            // VERIFICO CHE L'ELEMENTO NON SIA GIA STATO CLICCATO
+            if (this.classList.contains('clicked')) {
+                return; // Esce dalla funzione se la cella è già stata cliccata o è una bomba
+            }
             // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
             console.log(`Hai cliccato sulla cella numero ${i + 1}`);
             // CONTROLLA SE LA CELLA CLICCATA CONTIENE UNA BOMBA
