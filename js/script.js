@@ -26,6 +26,13 @@ function createGridElement() {
         return currentElement
     }
 }
+// DEFINISCO IL NUMERO TOTALE DELLE BOMBE
+const totalBombs = 16;
+// DEFINISCO LA FUNZIONE CHE GENERI 16 NUMERI DIVERSI TRA LORO 
+    function createBombs(totalBombs , elementsNumber ){
+        
+    }
+
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
 const gridDestination = document.getElementById('gridContainer');
 // DEFINISCO L'EVENTO CLICK DEL PULSANTE playBtn
