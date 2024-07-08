@@ -30,7 +30,8 @@ function createGridElement() {
 const totalBombs = 16;
 // DEFINISCO LA FUNZIONE CHE GENERI 16 NUMERI DIVERSI TRA LORO 
     function createBombs(totalBombs , elementsNumber ){
-        
+        // DEFINISCO UN ARRAY VUOTO
+        let bombs = [];
     }
 
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
