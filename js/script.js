@@ -29,12 +29,13 @@ function createGridElement() {
 // DEFINISCO IL NUMERO TOTALE DELLE BOMBE
 const totalBombs = 16;
 // DEFINISCO LA FUNZIONE CHE GENERI 16 NUMERI DIVERSI TRA LORO 
-    function createBombs(totalBombs , elementsNumber ){
+    function createBombs(totalBombs , totalElements ){
         // DEFINISCO UN ARRAY VUOTO
         let bombs = [];
         // DEFINISCO UN CICLO WHILE PER FAR GENERARE 16 NUMERI DIVERSI 
         while(bombs.length < totalBombs){
-            
+            // GENERO IL NUMERO EFFETTIVO CHE VERRA INSERITO NELL'ARRAY
+            let bomb = Math.floor(Math.random() * totalElements) + 1;
         }
     }
 
