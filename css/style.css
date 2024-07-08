@@ -107,6 +107,10 @@ main{
     border: 5px solid #001532;
 }
 
+.bomb{
+    background-color: red !important;
+}
+
 
 .custom-select {
     padding: 10px 15px;
