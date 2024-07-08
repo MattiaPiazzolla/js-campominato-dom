@@ -6,6 +6,7 @@ let difficulty = document.getElementById('difficultyLevel').value;
 function createGridElement() {
     // DEFINISCO CHE TIPO DI ELEMENTO CREARE
     let currentElement = document.createElement('div');
+    // DEFINISCO LE CONDIZIONI IN BASE ALLA DIFFICOLTÀ 
     if (difficulty === 'easy'){
         // AGGIUNGO UNA CLASSE ALL'ELEMENTO CREATO, PER DEFINIRE IL SUO STILE
         currentElement.classList.add('squareEasy');
@@ -27,7 +28,6 @@ function createGridElement() {
 }
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
 const gridDestination = document.getElementById('gridContainer');
-
 // DEFINISCO L'EVENTO CLICK DEL PULSANTE playBtn
 playBtn.addEventListener('click', function(){
     // SVUOTO LA GRIGLIA PRIMA DI GENERARNE UNA NUOVA

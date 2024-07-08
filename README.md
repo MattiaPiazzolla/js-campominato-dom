@@ -22,3 +22,18 @@ Ad esempio:
 Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
+
+SCOMPOSIZIONE IN SOTTOPROBLEMI
+>Definisco una funzione per generare un'array con 16 numeri diversi tra loro
+    >>Definisco un'array vuota 
+    >>Utilizzando while stabilisco che un numero deve essere generato generato fino a quando la lunghezza dell'arrai non sia uguale a 16
+        >>>Utilizzando math floor e math random genero un numero che va da 1 al numero di elmenti creati in base alla difficoltà (100/81.49)
+            >>>>con una condizione if, dico alla funzione di pushare il numero generato solo se non ancora presente all'interno dell'array
+        >>>esco dalla funzione 
+>all'interno dell'event listener del pulsante play vado ad inizzializzare la variabile per il punteggio 
+>definisco il numero totale delle caselle
+>all'inten dell'eventi listener della cella, vado ad aggiungere una verifia di presenza del numero della cella cliccata all'interno dell'array 
+    >>se il numero è presente, vado ad aggiungere la classe bomb alla cella ed un messaggio di allert di Game over!
+    >>In caso contrario, aggiungo la classe clicked e aumento lo score 
+        >>> determino le condizioni di vittoria quando il numero del punteggio è uguale al numero delle caselle totali meno il numero delle bombe (16)
+>il resto utilizzo la logica utilizzata nell'esercizio precedente a questo
