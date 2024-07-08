@@ -42,6 +42,8 @@ const totalBombs = 16;
                 bombs.push(bomb);
             }
         }
+        // UNA VOLTA COMPLETATO IL CICLO WHILE, ESCO E RESTITUISCO L'ARRAY
+        return bombs;
     }
 
 // DEFINISCO LA DESTINAZIONE DEGLI ELEMENTI CREATI
