@@ -74,7 +74,8 @@ playBtn.addEventListener('click', function(){
     // RESETTO LA CONSOLE
     console.clear();
     // RESETTO IL PUNTEGGIO
-    let score = 0; //------------------------------------------------------------------------------------------NON CAPISCO PERCHE FUNZIONA SOLO PARZIALMENTE
+    let score = 0;
+    document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">Punteggio : ${score}</h2>`
     // RESETTO LA CLASSE PER DISABILITARE IL CLICK
     gridDestination.classList.remove('game-over');
     // RIVALUTO IL VALORE DI DIFFICULTI AL CLICK DEL PULSANTE DI AVVIO/RESET
