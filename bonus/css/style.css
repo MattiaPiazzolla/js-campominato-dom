@@ -40,8 +40,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+    width: calc(100% / 2);
+    height: calc(100% / 4);
     border: 3px solid #001532;
     background-color: #fff;
     transition: all 0.25s;
@@ -54,8 +54,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% / 9);
-    height: calc(100% / 9);
+    width: calc(100% / 2);
+    height: calc(100% / 4);
     border: 3px solid #001532;
     background-color: #fff;
     transition: all 0.25s;
@@ -68,8 +68,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% / 7);
-    height: calc(100% / 7);
+    width: calc(100% / 2);
+    height: calc(100% / 4);
     border: 3px solid #001532;
     background-color: #fff;
     transition: all 0.25s;
@@ -139,4 +139,36 @@ main{
 
 .game-over{
     pointer-events: none;
+}
+
+@media screen and (min-width : 576px) {
+    .squareEasy{
+        width: calc(100% / 5);
+        height: calc(100% / 5);
+    }
+    .squareMedium{
+        width: calc(100% / 5);
+        height: calc(100% / 5);
+    }
+    .squareHard{
+        width: calc(100% / 5);
+        height: calc(100% / 5);
+    }
+    
+}
+
+@media screen and (min-width : 786px) {
+    .squareEasy{
+        width: calc(100% / 10);
+        height: calc(100% / 10);
+    }
+    .squareMedium{
+        width: calc(100% / 9);
+        height: calc(100% / 9);
+    }
+    .squareHard{
+        width: calc(100% / 7);
+        height: calc(100% / 7);
+    }
+    
 }

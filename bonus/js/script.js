@@ -123,6 +123,12 @@ playBtn.addEventListener('click', function(){
                 score ++;
                 // DEFINISCO L'OUTPUT DEL PUNTEGGIO
                 document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">Punteggio : ${score}</h2>`
+                if (totalElements - bombs.length == score){
+                    // AGGIUNGO L'OUTPUT PER LA VITTORIA
+                    alert('HAI VINTO!');
+                    gridDestination.classList.add('game-over');
+                    document.getElementById('scoreOutput').innerHTML += `<h2 class="text-center text-light my-3">Complimenti <span class="text-success">HAI VINTO</span></h2>`
+                }
             }
         });
         // APPENDO L'ELEMENTO CREATO ALL'INTERNO DI gridDestination
