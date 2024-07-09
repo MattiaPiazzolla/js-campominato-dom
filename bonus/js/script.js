@@ -103,7 +103,7 @@ playBtn.addEventListener('click', function(){
             // VERIFICO CHE L'ELEMENTO NON SIA GIA STATO CLICCATO
             if (this.classList.contains('clicked')) {
                 return;
-            }
+            }         
             // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
             console.log(`Hai cliccato sulla cella numero ${i + 1}`);
             // CONTROLLA SE LA CELLA CLICCATA CONTIENE UNA BOMBA
