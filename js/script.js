@@ -83,7 +83,7 @@ playBtn.addEventListener('click', function(){
         currentSquare.addEventListener('click', function(){
             // VERIFICO CHE L'ELEMENTO NON SIA GIA STATO CLICCATO
             if (this.classList.contains('clicked')) {
-                return; // Esce dalla funzione se la cella è già stata cliccata o è una bomba
+                return; // ESCE DALLA FUNZIONE SE LA CONDIZIONE È VERIFICATA
             }
             // MOSTRO IL NUMERO DELLA CELLA NELLA CONSOLE
             console.log(`Hai cliccato sulla cella numero ${i + 1}`);
@@ -95,7 +95,7 @@ playBtn.addEventListener('click', function(){
                 gridDestination.classList.add('game-over');
                 // AGGIUNGO UN ALLERT DI SCONFITTA
                 alert('BOOM!!! Hai calpestato una BOMBA, hai perso...');
-                document.getElementById('scoreOutput').innerHTML = `<h2 class="text-center text-light my-3">BOOM!!! Hai calpestato una BOMBA, hai perso...</h2>`
+                document.getElementById('scoreOutput').innerHTML += `<h2 class="text-center text-light my-3">BOOM!!! Hai calpestato una BOMBA, hai perso...</h2>`
             } else {
                 // AGGIUNGO UNA CLASSE clicked
                 this.classList.add('clicked');
